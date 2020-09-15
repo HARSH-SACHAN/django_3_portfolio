@@ -1,0 +1,23 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 id="blogtitle" class="font-weight-bold text-center">Achievements</h1>
+
+<h3 class="text-center mb-5">we have made {{ y.count }} achievement{{ y.count|pluralize }}</h3>
+
+{% for x in y %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+    <a href="{% url 'myachievements' %}">
+      <h2>{{ x.title }}</h2>
+    </a>
+    <h5 class="text-muted">{{ x.date|date:'M d Y'|upper }}</h5>
+    <h4>{{ x.description|safe }}</h4>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
